@@ -1,3 +1,7 @@
+---
+import MediaCard from './MediaCard.astro';
+---
+
 <section id="blog" class="section">
   <div class="container">
     <div class="blog-header reveal">
@@ -8,9 +12,12 @@
       <article class="blog-card reveal reveal-delay-1 disabled">
         <div class="blog-card-inner">
           <span class="blog-badge">Próximamente</span>
-          <div class="blog-image">
-            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80" alt="Boceto de estrategia digital sobre una mesa de reuniones con post-its y diagramas" loading="lazy" />
-          </div>
+          <MediaCard
+            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80"
+            alt="Boceto de estrategia digital sobre una mesa de reuniones con post-its y diagramas"
+            aspectRatio="16 / 10"
+            loading="lazy"
+          />
           <div class="blog-body">
             <div class="blog-tags">
               <span class="blog-tag">Estrategia</span>
@@ -24,9 +31,12 @@
       <article class="blog-card reveal reveal-delay-2 disabled">
         <div class="blog-card-inner">
           <span class="blog-badge">Próximamente</span>
-          <div class="blog-image">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Panel de análisis con gráficos y métricas de rendimiento web" loading="lazy" />
-          </div>
+          <MediaCard
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80"
+            alt="Panel de análisis con gráficos y métricas de rendimiento web"
+            aspectRatio="16 / 10"
+            loading="lazy"
+          />
           <div class="blog-body">
             <div class="blog-tags">
               <span class="blog-tag">Métricas</span>
@@ -40,9 +50,12 @@
       <article class="blog-card reveal reveal-delay-3 disabled">
         <div class="blog-card-inner">
           <span class="blog-badge">Próximamente</span>
-          <div class="blog-image">
-            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80" alt="Espacio de trabajo con diseñadores y desarrolladores colaborando en una interfaz" loading="lazy" />
-          </div>
+          <MediaCard
+            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80"
+            alt="Espacio de trabajo con diseñadores y desarrolladores colaborando en una interfaz"
+            aspectRatio="16 / 10"
+            loading="lazy"
+          />
           <div class="blog-body">
             <div class="blog-tags">
               <span class="blog-tag">UI/UX</span>
@@ -107,18 +120,6 @@
     border-radius: 100px;
     letter-spacing: 0.04em;
     backdrop-filter: blur(4px);
-  }
-
-  .blog-image {
-    display: block;
-    overflow: hidden;
-    aspect-ratio: 16 / 10;
-  }
-
-  .blog-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   .blog-body {

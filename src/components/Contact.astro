@@ -1,3 +1,7 @@
+---
+import MediaCard from './MediaCard.astro';
+---
+
 <section id="contacto" class="section section-alt">
   <div class="container">
     <div class="contact-header reveal">
@@ -9,18 +13,33 @@
       <div class="contact-form-wrapper reveal reveal-delay-1">
         <form id="contactForm" action="https://formspree.io/f/mbdbpzlq" method="POST" class="contact-form">
           <div class="form-row">
-            <input type="text" name="name" placeholder="Nombre completo" required />
-            <input type="email" name="email" placeholder="Correo electrónico" required />
+            <div class="form-field">
+              <label for="contactName" class="sr-only">Nombre completo</label>
+              <input type="text" id="contactName" name="name" placeholder="Nombre completo" required />
+            </div>
+            <div class="form-field">
+              <label for="contactEmail" class="sr-only">Correo electrónico</label>
+              <input type="email" id="contactEmail" name="email" placeholder="Correo electrónico" required />
+            </div>
           </div>
-          <input type="text" name="company" placeholder="Empresa" required />
-          <select name="size" required>
-            <option value="">¿Cuántas personas tiene tu equipo?</option>
-            <option value="1">Solo yo</option>
-            <option value="2-5">2 a 5 personas</option>
-            <option value="6-15">6 a 15 personas</option>
-            <option value="16+">Más de 15 personas</option>
-          </select>
-          <textarea name="message" rows="4" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+          <div class="form-field">
+            <label for="contactCompany" class="sr-only">Empresa</label>
+            <input type="text" id="contactCompany" name="company" placeholder="Empresa" required />
+          </div>
+          <div class="form-field">
+            <label for="contactSize" class="sr-only">Tamaño del equipo</label>
+            <select id="contactSize" name="size" required>
+              <option value="">¿Cuántas personas tiene tu equipo?</option>
+              <option value="1">Solo yo</option>
+              <option value="2-5">2 a 5 personas</option>
+              <option value="6-15">6 a 15 personas</option>
+              <option value="16+">Más de 15 personas</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="contactMessage" class="sr-only">Mensaje</label>
+            <textarea id="contactMessage" name="message" rows="4" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+          </div>
           <button type="submit" class="btn btn-primary">Enviar mensaje</button>
           <p class="form-note">Respondemos en menos de 24 hrs hábiles.</p>
         </form>
@@ -33,9 +52,12 @@
         </div>
       </div>
       <div class="contact-info reveal reveal-delay-2">
-        <div class="photo-card contact-photo">
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="Oficina moderna de Accelerazione con equipo trabajando en proyecto digital" loading="lazy" />
-        </div>
+        <MediaCard
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80"
+          alt="Oficina moderna de Accelerazione con equipo trabajando en proyecto digital"
+          aspectRatio="16 / 10"
+          loading="lazy"
+        />
         <div class="contact-card">
           <div class="contact-item">
             <strong>Email</strong>
@@ -79,6 +101,23 @@
     gap: 1rem;
   }
 
+  .form-field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   .contact-form input,
   .contact-form select,
   .contact-form textarea {
@@ -119,25 +158,6 @@
     gap: 1.5rem;
   }
 
-  .photo-card {
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-    aspect-ratio: 16 / 10;
-    transition: transform var(--transition), box-shadow var(--transition);
-  }
-
-  .photo-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-  }
-
-  .photo-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
   .contact-card {
     background: var(--color-card-bg);
     border: 1px solid var(--color-border);
@@ -158,7 +178,7 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--color-text-tertiary);
+    color: var(--color-text-secondary);
   }
 
   .contact-item a,

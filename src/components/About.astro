@@ -1,3 +1,7 @@
+---
+import MediaCard from './MediaCard.astro';
+---
+
 <section id="nosotros" class="section">
   <div class="container">
     <div class="about-grid">
@@ -20,12 +24,18 @@
         </div>
       </div>
       <div class="about-visual reveal reveal-delay-2">
-        <div class="photo-card photo-card-main">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80" alt="Equipo de Accelerazione en una sesión de lluvia de ideas colaborativa" loading="lazy" />
-        </div>
-        <div class="photo-card photo-card-small">
-          <img src="https://images.unsplash.com/photo-1600267185393-e158a98703de?w=400&q=80" alt="Diseñadora trabajando en la interfaz de usuario de una aplicación" loading="lazy" />
-        </div>
+        <MediaCard
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
+          alt="Equipo de Accelerazione en una sesión de lluvia de ideas colaborativa"
+          aspectRatio="4 / 3"
+          loading="lazy"
+        />
+        <MediaCard
+          src="https://images.unsplash.com/photo-1600267185393-e158a98703de?w=400&q=80"
+          alt="Diseñadora trabajando en la interfaz de usuario de una aplicación"
+          aspectRatio="3 / 4"
+          loading="lazy"
+        />
       </div>
     </div>
   </div>
@@ -79,30 +89,8 @@
     position: relative;
   }
 
-  .photo-card {
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-    transition: transform var(--transition), box-shadow var(--transition);
-  }
-
-  .photo-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-  }
-
-  .photo-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .photo-card-main {
-    aspect-ratio: 4 / 3;
-  }
-
-  .photo-card-small {
-    aspect-ratio: 3 / 4;
+  .about-actions {
+    margin-top: 1.5rem;
   }
 
   @media (max-width: 768px) {
