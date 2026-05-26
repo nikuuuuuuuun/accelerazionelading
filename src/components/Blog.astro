@@ -1,185 +1,61 @@
----
-import MediaCard from './MediaCard.astro';
----
-
-<section id="blog" class="section">
-  <div class="container">
-    <div class="blog-header reveal">
-      <span class="section-label">Blog</span>
-      <h2 class="section-title">Ideas prácticas para construir mejores productos digitales.</h2>
+<section id="blog" class="py-24 bg-white">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="mb-12 reveal">
+      <span class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3 block">Blog</span>
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">Ideas prácticas para construir mejores productos digitales.</h2>
     </div>
-    <div class="blog-grid">
-      <article class="blog-card reveal reveal-delay-1 disabled">
-        <div class="blog-card-inner">
-          <span class="blog-badge">Próximamente</span>
-          <MediaCard
-            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80"
-            alt="Boceto de estrategia digital sobre una mesa de reuniones con post-its y diagramas"
-            aspectRatio="16 / 10"
-            loading="lazy"
-          />
-          <div class="blog-body">
-            <div class="blog-tags">
-              <span class="blog-tag">Estrategia</span>
-              <span class="blog-tag">Diseño</span>
-            </div>
-            <span class="blog-title">Cómo definir una estrategia de producto digital en 5 pasos</span>
-            <p class="blog-excerpt">Definir la estrategia correcta antes de escribir una línea de código es lo que separa los productos que funcionan de los que no.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <article class="bg-white border border-[var(--color-border)] rounded-lg overflow-hidden transition-all duration-300 opacity-60 cursor-not-allowed relative reveal reveal-delay-1">
+        <div class="relative">
+          <span class="absolute top-3 right-3 z-10 bg-black/75 text-white text-xs font-semibold px-3 py-1 rounded-full tracking-wide backdrop-blur-sm">Próximamente</span>
+          <div class="overflow-hidden rounded-sm shadow-xl grayscale hover:grayscale-0 transition-all duration-500" style="aspect-ratio: 16/10">
+            <img src="/assets/produccion-cine.jpg" alt="Boceto de estrategia de producción audiovisual" class="object-cover w-full h-full" loading="lazy" />
           </div>
         </div>
-      </article>
-      <article class="blog-card reveal reveal-delay-2 disabled">
-        <div class="blog-card-inner">
-          <span class="blog-badge">Próximamente</span>
-          <MediaCard
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80"
-            alt="Panel de análisis con gráficos y métricas de rendimiento web"
-            aspectRatio="16 / 10"
-            loading="lazy"
-          />
-          <div class="blog-body">
-            <div class="blog-tags">
-              <span class="blog-tag">Métricas</span>
-              <span class="blog-tag">Crecimiento</span>
-            </div>
-            <span class="blog-title">Las 5 métricas que realmente importan en tu web</span>
-            <p class="blog-excerpt">Olvida las métricas vanity. Te mostramos qué indicadores reflejan el impacto real de tu producto digital en el negocio.</p>
+        <div class="p-6">
+          <div class="flex gap-2 mb-3 flex-wrap">
+            <span class="text-xs font-semibold text-gray-500 bg-gray-50 px-2 py-1 rounded-full uppercase tracking-wide">Estrategia</span>
+            <span class="text-xs font-semibold text-gray-500 bg-gray-50 px-2 py-1 rounded-full uppercase tracking-wide">Diseño</span>
           </div>
+          <span class="block text-sm font-semibold tracking-tight text-gray-900 leading-snug mb-2 cursor-not-allowed">Cómo definir una estrategia de producción audiovisual en 5 pasos</span>
+          <p class="text-xs text-gray-500 leading-relaxed">Definir la estrategia correcta antes de filmar es lo que separa las producciones que funcionan de las que no.</p>
         </div>
       </article>
-      <article class="blog-card reveal reveal-delay-3 disabled">
-        <div class="blog-card-inner">
-          <span class="blog-badge">Próximamente</span>
-          <MediaCard
-            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80"
-            alt="Espacio de trabajo con diseñadores y desarrolladores colaborando en una interfaz"
-            aspectRatio="16 / 10"
-            loading="lazy"
-          />
-          <div class="blog-body">
-            <div class="blog-tags">
-              <span class="blog-tag">UI/UX</span>
-              <span class="blog-tag">Desarrollo</span>
-            </div>
-            <span class="blog-title">Diseño y desarrollo: cómo integrar ambos sin fricción</span>
-            <p class="blog-excerpt">La brecha entre diseño y desarrollo es una de las principales fuentes de retraso. Cómo cerrarla con procesos ágiles y colaboración real.</p>
+      <article class="bg-white border border-[var(--color-border)] rounded-lg overflow-hidden transition-all duration-300 opacity-60 cursor-not-allowed relative reveal reveal-delay-2">
+        <div class="relative">
+          <span class="absolute top-3 right-3 z-10 bg-black/75 text-white text-xs font-semibold px-3 py-1 rounded-full tracking-wide backdrop-blur-sm">Próximamente</span>
+          <div class="overflow-hidden rounded-sm shadow-xl grayscale hover:grayscale-0 transition-all duration-500" style="aspect-ratio: 16/10">
+            <img src="/assets/edicion-video.jpg" alt="Panel de métricas de rendimiento de contenido audiovisual" class="object-cover w-full h-full" loading="lazy" />
           </div>
+        </div>
+        <div class="p-6">
+          <div class="flex gap-2 mb-3 flex-wrap">
+            <span class="text-xs font-semibold text-gray-500 bg-gray-50 px-2 py-1 rounded-full uppercase tracking-wide">Métricas</span>
+            <span class="text-xs font-semibold text-gray-500 bg-gray-50 px-2 py-1 rounded-full uppercase tracking-wide">Crecimiento</span>
+          </div>
+          <span class="block text-sm font-semibold tracking-tight text-gray-900 leading-snug mb-2 cursor-not-allowed">Las 5 métricas que realmente importan en tu producción</span>
+          <p class="text-xs text-gray-500 leading-relaxed">Olvida las métricas vanity. Te mostramos qué indicadores reflejan el impacto real de tu contenido audiovisual.</p>
+        </div>
+      </article>
+      <article class="bg-white border border-[var(--color-border)] rounded-lg overflow-hidden transition-all duration-300 opacity-60 cursor-not-allowed relative reveal reveal-delay-3">
+        <div class="relative">
+          <span class="absolute top-3 right-3 z-10 bg-black/75 text-white text-xs font-semibold px-3 py-1 rounded-full tracking-wide backdrop-blur-sm">Próximamente</span>
+          <div class="overflow-hidden rounded-sm shadow-xl grayscale hover:grayscale-0 transition-all duration-500" style="aspect-ratio: 16/10">
+            <img src="/assets/hero-cinematic.jpg" alt="Espacio de trabajo en producción audiovisual colaborativa" class="object-cover w-full h-full" loading="lazy" />
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex gap-2 mb-3 flex-wrap">
+            <span class="text-xs font-semibold text-gray-500 bg-gray-50 px-2 py-1 rounded-full uppercase tracking-wide">Producción</span>
+            <span class="text-xs font-semibold text-gray-500 bg-gray-50 px-2 py-1 rounded-full uppercase tracking-wide">Post</span>
+          </div>
+          <span class="block text-sm font-semibold tracking-tight text-gray-900 leading-snug mb-2 cursor-not-allowed">Preproducción y postproducción: cómo integrar ambas fases sin fricción</span>
+          <p class="text-xs text-gray-500 leading-relaxed">La brecha entre pre y postproducción es una de las principales fuentes de retraso. Cómo cerrarla con procesos ágiles.</p>
         </div>
       </article>
     </div>
-    <div class="blog-footer reveal">
-      <span class="btn btn-outline disabled-link">Ver todos los artículos →</span>
+    <div class="text-center mt-12 reveal">
+      <span class="bg-transparent text-gray-900 border border-gray-300 px-6 py-3 rounded-md text-sm font-medium inline-block cursor-not-allowed opacity-50">Ver todos los artículos →</span>
     </div>
   </div>
 </section>
-
-<style>
-  .blog-header {
-    margin-bottom: 3rem;
-  }
-
-  .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .blog-card {
-    background: var(--color-card-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 18px;
-    overflow: hidden;
-    transition: transform var(--transition), box-shadow var(--transition);
-    position: relative;
-  }
-
-  .blog-card.disabled {
-    opacity: 0.55;
-    cursor: not-allowed;
-  }
-
-  .blog-card.disabled:hover {
-    transform: none;
-    box-shadow: none;
-  }
-
-  .blog-card-inner {
-    position: relative;
-  }
-
-  .blog-badge {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    z-index: 10;
-    background: rgba(0, 0, 0, 0.75);
-    color: #fff;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    padding: 0.3rem 0.75rem;
-    border-radius: 100px;
-    letter-spacing: 0.04em;
-    backdrop-filter: blur(4px);
-  }
-
-  .blog-body {
-    padding: 1.5rem;
-  }
-
-  .blog-tags {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-    flex-wrap: wrap;
-  }
-
-  .blog-tag {
-    font-size: 0.6875rem;
-    font-weight: 600;
-    color: var(--color-text-secondary);
-    background: var(--color-section-alt);
-    padding: 0.25rem 0.625rem;
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  .blog-title {
-    display: block;
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: var(--color-text);
-    line-height: 1.4;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
-    cursor: not-allowed;
-  }
-
-  .blog-excerpt {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-  }
-
-  .blog-footer {
-    text-align: center;
-    margin-top: 3rem;
-  }
-
-  .disabled-link {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-
-  .disabled-link:hover {
-    background: transparent;
-    color: var(--color-text);
-    opacity: 0.5;
-  }
-
-  @media (max-width: 768px) {
-    .blog-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

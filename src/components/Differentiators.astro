@@ -1,77 +1,25 @@
-<section class="section section-alt">
-  <div class="container">
-    <div class="diffs-header reveal">
-      <span class="section-label">Lo que nos diferencia</span>
-      <h2 class="section-title">No solo construimos bonito.<br />Construimos con propósito.</h2>
+<section class="py-24 bg-gray-50">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="mb-14 reveal">
+      <span class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3 block">Lo que nos diferencia</span>
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">No solo construimos bonito.<br />Construimos con propósito.</h2>
     </div>
-    <div class="diffs-grid">
-      <div class="diff-card reveal reveal-delay-1">
-        <div class="diff-number">01</div>
-        <h3 class="diff-title">Resultados medibles</h3>
-        <p class="diff-desc">Cada decisión de diseño se justifica en el impacto que genera. Sin cambios por cambiar.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white border border-[var(--color-border)] rounded-lg p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal reveal-delay-1">
+        <div class="text-xs font-semibold tracking-widest text-gray-400 mb-4">01</div>
+        <h3 class="text-lg font-semibold tracking-tight text-gray-900 mb-2">Resultados medibles</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">Cada decisión de diseño se justifica en el impacto que genera. Sin cambios por cambiar.</p>
       </div>
-      <div class="diff-card reveal reveal-delay-2">
-        <div class="diff-number">02</div>
-        <h3 class="diff-title">Claro y sin ruido</h3>
-        <p class="diff-desc">Explicamos sin tecnicismos. Traducimos complejidad técnica en decisiones claras de negocio.</p>
+      <div class="bg-white border border-[var(--color-border)] rounded-lg p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal reveal-delay-2">
+        <div class="text-xs font-semibold tracking-widest text-gray-400 mb-4">02</div>
+        <h3 class="text-lg font-semibold tracking-tight text-gray-900 mb-2">Claro y sin ruido</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">Explicamos sin tecnicismos. Traducimos complejidad técnica en decisiones claras de negocio.</p>
       </div>
-      <div class="diff-card reveal reveal-delay-3">
-        <div class="diff-number">03</div>
-        <h3 class="diff-title">Compromiso total</h3>
-        <p class="diff-desc">Nos involucramos hasta que todo funcione. Diseñamos, desarrollamos y acompañamos cada etapa.</p>
+      <div class="bg-white border border-[var(--color-border)] rounded-lg p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal reveal-delay-3">
+        <div class="text-xs font-semibold tracking-widest text-gray-400 mb-4">03</div>
+        <h3 class="text-lg font-semibold tracking-tight text-gray-900 mb-2">Compromiso total</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">Nos involucramos hasta que todo funcione. Diseñamos, desarrollamos y acompañamos cada etapa.</p>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .diffs-header {
-    margin-bottom: 3.5rem;
-  }
-
-  .diffs-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .diff-card {
-    background: var(--color-card-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 18px;
-    padding: 2.5rem 2rem;
-    transition: transform var(--transition), box-shadow var(--transition);
-  }
-
-  .diff-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-  }
-
-  .diff-number {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-text-tertiary);
-    letter-spacing: 0.1em;
-    margin-bottom: 1rem;
-  }
-
-  .diff-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
-  }
-
-  .diff-desc {
-    font-size: 0.9375rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-  }
-
-  @media (max-width: 768px) {
-    .diffs-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

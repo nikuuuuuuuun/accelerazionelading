@@ -1,105 +1,32 @@
----
-import MediaCard from './MediaCard.astro';
----
-
-<section id="nosotros" class="section">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-content reveal">
-        <span class="section-label">Quiénes somos</span>
-        <h2 class="section-title">Construimos desde la experiencia real.</h2>
-        <p class="about-text">
+<section id="nosotros" class="py-24 bg-white">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <span class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3 block">Quiénes somos</span>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">Construimos desde la experiencia real.</h2>
+        <p class="text-base text-gray-500 leading-relaxed mb-5">
           Tras años trabajando en tecnología y producto, confirmamos una verdad esencial: el software solo genera impacto cuando nace desde la estrategia y el diseño pensado en las personas.
         </p>
-        <p class="about-text">
+        <p class="text-base text-gray-500 leading-relaxed mb-5">
           En Accelerazione acompañamos a empresas a transformar sus ideas en productos digitales que funcionan, se ven bien y generan resultados medibles.
         </p>
-        <ul class="about-list">
-          <li>Diseñamos experiencias que conectan con tus usuarios</li>
-          <li>Construimos productos escalables con tecnologías modernas</li>
-          <li>Medimos el impacto real de cada decisión</li>
+        <ul class="list-none mb-6 flex flex-col gap-3">
+          <li class="text-base text-gray-900 pl-6 relative before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-1.5 before:h-1.5 before:rounded-full before:bg-gray-900">Diseñamos experiencias que conectan con tus usuarios</li>
+          <li class="text-base text-gray-900 pl-6 relative before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-1.5 before:h-1.5 before:rounded-full before:bg-gray-900">Construimos productos escalables con tecnologías modernas</li>
+          <li class="text-base text-gray-900 pl-6 relative before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-1.5 before:h-1.5 before:rounded-full before:bg-gray-900">Medimos el impacto real de cada decisión</li>
         </ul>
-        <div class="about-actions">
-          <a href="#contacto" class="btn btn-cta">Agenda una conversación</a>
+        <div>
+          <a href="#contacto" class="bg-black text-white hover:bg-gray-800 transition-colors shadow-md px-6 py-3 rounded-md text-sm font-medium inline-block">Agenda una conversación</a>
         </div>
       </div>
-      <div class="about-visual reveal reveal-delay-2">
-        <MediaCard
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
-          alt="Equipo de Accelerazione en una sesión de lluvia de ideas colaborativa"
-          aspectRatio="4 / 3"
-          loading="lazy"
-        />
-        <MediaCard
-          src="https://images.unsplash.com/photo-1600267185393-e158a98703de?w=400&q=80"
-          alt="Diseñadora trabajando en la interfaz de usuario de una aplicación"
-          aspectRatio="3 / 4"
-          loading="lazy"
-        />
+      <div class="grid grid-cols-[2fr_1fr] gap-4 reveal reveal-delay-2">
+        <div class="overflow-hidden rounded-sm shadow-xl grayscale hover:grayscale-0 transition-all duration-500" style="aspect-ratio: 4/3">
+          <img src="/assets/produccion-cine.jpg" alt="Set de filmación profesional con cámara y equipo técnico" class="object-cover w-full h-full" loading="lazy" />
+        </div>
+        <div class="overflow-hidden rounded-sm shadow-xl grayscale hover:grayscale-0 transition-all duration-500" style="aspect-ratio: 3/4">
+          <img src="/assets/edicion-video.jpg" alt="Editor de video trabajando en postproducción con monitor calibrado" class="object-cover w-full h-full" loading="lazy" />
+        </div>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .about-text {
-    font-size: 1.0625rem;
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-    margin-bottom: 1.25rem;
-  }
-
-  .about-list {
-    list-style: none;
-    margin: 1.5rem 0 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .about-list li {
-    font-size: 1rem;
-    color: var(--color-text);
-    padding-left: 1.5rem;
-    position: relative;
-  }
-
-  .about-list li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--color-text);
-  }
-
-  .about-visual {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1rem;
-    position: relative;
-  }
-
-  .about-actions {
-    margin-top: 1.5rem;
-  }
-
-  @media (max-width: 768px) {
-    .about-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    .about-visual {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-</style>
