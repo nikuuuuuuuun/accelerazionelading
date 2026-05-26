@@ -1,0 +1,82 @@
+<section id="impacto" class="section section-alt">
+  <div class="container">
+    <div class="stats-header reveal">
+      <span class="section-label">Impacto generado</span>
+      <h2 class="section-title">Resultados que importan.</h2>
+      <p class="section-subtitle">Cada proyecto está diseñado para generar impacto medible. Sin métricas vanity.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card reveal reveal-delay-1">
+        <span class="stat-value">+150%</span>
+        <span class="stat-label">ROI promedio en proyectos</span>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <span class="stat-value">30+</span>
+        <span class="stat-label">Proyectos entregados</span>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <span class="stat-value">20+</span>
+        <span class="stat-label">Clientes satisfechos</span>
+      </div>
+      <div class="stat-card reveal reveal-delay-4">
+        <span class="stat-value">98%</span>
+        <span class="stat-label">Velocidad de carga promedio</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .stat-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  }
+
+  .stat-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

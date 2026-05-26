@@ -1,0 +1,99 @@
+<section id="metodologia" class="section">
+  <div class="container">
+    <div class="method-header reveal">
+      <span class="section-label">Metodología</span>
+      <h2 class="section-title">Nuestra forma de trabajar.</h2>
+      <p class="section-subtitle">Construir un producto digital puede parecer complejo. Nuestro proceso lo hace simple desde el día uno.</p>
+    </div>
+    <div class="method-grid">
+      <div class="method-step reveal reveal-delay-1">
+        <div class="step-circle">1</div>
+        <h3 class="step-title">Descubrimiento</h3>
+        <p class="step-desc">Escuchamos tu negocio, entendemos tus objetivos y los desafíos que enfrentas.</p>
+      </div>
+      <div class="method-step reveal reveal-delay-2">
+        <div class="step-circle">2</div>
+        <h3 class="step-title">Estrategia</h3>
+        <p class="step-desc">Definimos el alcance, la arquitectura y el plan de trabajo alineado a tus metas.</p>
+      </div>
+      <div class="method-step reveal reveal-delay-3">
+        <div class="step-circle">3</div>
+        <h3 class="step-title">Diseño</h3>
+        <p class="step-desc">Creamos interfaces pensadas en el usuario, con prototipos que validamos contigo.</p>
+      </div>
+      <div class="method-step reveal reveal-delay-1">
+        <div class="step-circle">4</div>
+        <h3 class="step-title">Desarrollo</h3>
+        <p class="step-desc">Construimos el producto con tecnologías modernas, iterando de forma ágil.</p>
+      </div>
+      <div class="method-step reveal reveal-delay-2">
+        <div class="step-circle">5</div>
+        <h3 class="step-title">Implementación</h3>
+        <p class="step-desc">Integramos y desplegamos sin interrumpir tu operación actual.</p>
+      </div>
+      <div class="method-step reveal reveal-delay-3">
+        <div class="step-circle">6</div>
+        <h3 class="step-title">Acompañamiento</h3>
+        <p class="step-desc">Ajustamos y refinamos hasta que el producto sea parte de tu día a día.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .method-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .method-step {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    padding: 2rem;
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .method-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  }
+
+  .step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-text);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  .step-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .step-desc {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .method-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,100 @@
+<section id="faq" class="section">
+  <div class="container">
+    <div class="faq-header reveal">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Preguntas frecuentes.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item reveal reveal-delay-1" open>
+        <summary class="faq-question">¿Cuánto tiempo toma crear un landing page?</summary>
+        <div class="faq-answer">
+          <p>Un landing page profesional toma entre 2 a 4 semanas, dependiendo de la complejidad del diseño y las funcionalidades requeridas. Trabajamos con entregas iterativas para que puedas ver el progreso desde la primera semana.</p>
+        </div>
+      </details>
+      <details class="faq-item reveal reveal-delay-2">
+        <summary class="faq-question">¿Necesito tener un diseño previo para empezar?</summary>
+        <div class="faq-answer">
+          <p>No. Nosotros nos encargamos de todo el proceso de diseño desde cero. Solo necesitamos entender tu negocio, tus objetivos y tu marca para crear un diseño alineado a tus necesidades.</p>
+        </div>
+      </details>
+      <details class="faq-item reveal reveal-delay-3">
+        <summary class="faq-question">¿Ofrecen mantenimiento después del lanzamiento?</summary>
+        <div class="faq-answer">
+          <p>Sí. Todos nuestros planes incluyen un período de soporte post-lanzamiento. También ofrecemos retainers mensuales para mantenimiento continuo, actualizaciones y soporte técnico.</p>
+        </div>
+      </details>
+      <details class="faq-item reveal reveal-delay-1">
+        <summary class="faq-question">¿Trabajan con tecnologías específicas?</summary>
+        <div class="faq-answer">
+          <p>Utilizamos tecnologías modernas y probadas: React, Astro, Node.js, TypeScript, entre otras. Seleccionamos el stack técnico más adecuado para cada proyecto, no al revés.</p>
+        </div>
+      </details>
+      <details class="faq-item reveal reveal-delay-2">
+        <summary class="faq-question">¿Cómo es el proceso de trabajo?</summary>
+        <div class="faq-answer">
+          <p>Trabajamos de forma ágil con entregas quincenales. Comenzamos con un descubrimiento profundo, seguido de diseño, desarrollo iterativo y finalmente despliegue. Te mantendremos informado en cada etapa.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-header {
+    margin-bottom: 3rem;
+  }
+
+  .faq-list {
+    max-width: 768px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+    padding: 1.25rem 0;
+    transition: opacity var(--transition);
+  }
+
+  .faq-item[open] {
+    padding-bottom: 1.5rem;
+  }
+
+  .faq-question {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    padding: 0.25rem 0;
+    letter-spacing: -0.01em;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: "+";
+    font-size: 1.5rem;
+    color: var(--color-text-tertiary);
+    font-weight: 300;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    margin-top: 0.75rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 640px;
+  }
+</style>
