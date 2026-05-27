@@ -1,9 +1,9 @@
-<section id="contacto" class="py-24 bg-gray-50">
+<section id="contacto" class="py-24 bg-white">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="mb-12 reveal">
       <span class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3 block">Contacto</span>
       <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">Conversemos.</h2>
-      <p class="text-xl text-gray-500 max-w-[600px] leading-relaxed font-normal">En 30 minutos entendemos tu proyecto, identificamos si podemos ayudarte y definimos los siguientes pasos.</p>
+      <p class="text-xl text-gray-500 max-w-[600px] leading-relaxed font-normal">Cuéntanos de tu proyecto. En 30 minutos entendemos tu desafío y te proponemos los siguientes pasos.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 items-start">
       <div class="reveal reveal-delay-1">
@@ -11,30 +11,31 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="flex flex-col">
               <label for="contactName" class="sr-only">Nombre completo</label>
-              <input type="text" id="contactName" name="name" placeholder="Nombre completo" required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-white text-gray-900 outline-none focus:border-gray-900 transition-colors" />
+              <input type="text" id="contactName" name="name" placeholder="Nombre completo" required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-gray-50 text-gray-900 outline-none focus:border-gray-900 transition-colors" />
             </div>
             <div class="flex flex-col">
               <label for="contactEmail" class="sr-only">Correo electrónico</label>
-              <input type="email" id="contactEmail" name="email" placeholder="Correo electrónico" required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-white text-gray-900 outline-none focus:border-gray-900 transition-colors" />
+              <input type="email" id="contactEmail" name="email" placeholder="Correo electrónico" required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-gray-50 text-gray-900 outline-none focus:border-gray-900 transition-colors" />
             </div>
           </div>
           <div class="flex flex-col">
             <label for="contactCompany" class="sr-only">Empresa</label>
-            <input type="text" id="contactCompany" name="company" placeholder="Empresa" required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-white text-gray-900 outline-none focus:border-gray-900 transition-colors" />
+            <input type="text" id="contactCompany" name="company" placeholder="Empresa" required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-gray-50 text-gray-900 outline-none focus:border-gray-900 transition-colors" />
           </div>
           <div class="flex flex-col">
-            <label for="contactSize" class="sr-only">Tamaño del equipo</label>
-            <select id="contactSize" name="size" required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-white text-gray-900 outline-none focus:border-gray-900 transition-colors">
-              <option value="">¿Cuántas personas tiene tu equipo?</option>
-              <option value="1">Solo yo</option>
-              <option value="2-5">2 a 5 personas</option>
-              <option value="6-15">6 a 15 personas</option>
-              <option value="16+">Más de 15 personas</option>
+            <label for="contactService" class="sr-only">Servicio de interés</label>
+            <select id="contactService" name="service" required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-gray-50 text-gray-900 outline-none focus:border-gray-900 transition-colors">
+              <option value="">¿Qué servicio te interesa?</option>
+              <option value="audiovisual">Producción Audiovisual</option>
+              <option value="web">Desarrollo Web</option>
+              <option value="branding">Consultoría & Branding</option>
+              <option value="integral">Solución integral (Audiovisual + Web)</option>
+              <option value="otro">Otro</option>
             </select>
           </div>
           <div class="flex flex-col">
             <label for="contactMessage" class="sr-only">Mensaje</label>
-            <textarea id="contactMessage" name="message" rows="4" placeholder="Cuéntanos sobre tu proyecto..." required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-white text-gray-900 outline-none focus:border-gray-900 transition-colors resize-y"></textarea>
+            <textarea id="contactMessage" name="message" rows="4" placeholder="Cuéntanos sobre tu proyecto..." required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-gray-50 text-gray-900 outline-none focus:border-gray-900 transition-colors resize-y"></textarea>
           </div>
           <button type="submit" class="bg-black text-white hover:bg-gray-800 shadow-md px-6 py-3 rounded-md text-sm font-medium self-start transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg active:scale-95">Enviar mensaje</button>
           <p class="text-xs text-gray-400 mt-1">Respondemos en menos de 24 hrs hábiles.</p>
@@ -49,14 +50,14 @@
         <div class="overflow-hidden rounded-sm shadow-xl grayscale hover:grayscale-0 transition-all duration-500" style="aspect-ratio: 16/10">
           <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80" alt="Estudio de producción audiovisual con equipo profesional" class="object-cover w-full h-full rounded-md shadow-md" loading="lazy" />
         </div>
-        <div class="bg-white border border-[var(--color-border)] rounded-lg p-6 flex flex-col gap-5">
+        <div class="bg-gray-50 border border-[var(--color-border)] rounded-lg p-6 flex flex-col gap-5">
           <div class="flex flex-col gap-1">
             <strong class="text-xs font-semibold uppercase tracking-widest text-gray-500">Email</strong>
             <a href="mailto:hola@accelerazione.com" class="text-sm text-gray-900">hola@accelerazione.com</a>
           </div>
           <div class="flex flex-col gap-1">
             <strong class="text-xs font-semibold uppercase tracking-widest text-gray-500">Ubicación</strong>
-            <span class="text-sm text-gray-900">Chile & LATAM</span>
+            <span class="text-sm text-gray-900">Santiago, Chile & LATAM</span>
           </div>
           <div class="flex flex-col gap-1">
             <strong class="text-xs font-semibold uppercase tracking-widest text-gray-500">LinkedIn</strong>
