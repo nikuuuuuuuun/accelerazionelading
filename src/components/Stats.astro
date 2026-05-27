@@ -7,19 +7,19 @@
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
       <div class="bg-white border border-[var(--color-border)] rounded-lg p-8 flex flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg reveal reveal-delay-1">
-        <span class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-none mb-2">+80</span>
+        <span class="counter text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-none mb-2" data-target="1000" data-prefix="+">+0</span>
         <span class="text-sm text-gray-500 leading-tight font-normal">Proyectos realizados</span>
       </div>
       <div class="bg-white border border-[var(--color-border)] rounded-lg p-8 flex flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg reveal reveal-delay-2">
-        <span class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-none mb-2">30+</span>
+        <span class="counter text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-none mb-2" data-target="30" data-prefix="+">+0</span>
         <span class="text-sm text-gray-500 leading-tight font-normal">Clientes activos</span>
       </div>
       <div class="bg-white border border-[var(--color-border)] rounded-lg p-8 flex flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg reveal reveal-delay-3">
-        <span class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-none mb-2">12+</span>
+        <span class="counter text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-none mb-2" data-target="12" data-prefix="+">+0</span>
         <span class="text-sm text-gray-500 leading-tight font-normal">Años de experiencia</span>
       </div>
       <div class="bg-white border border-[var(--color-border)] rounded-lg p-8 flex flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg reveal reveal-delay-4">
-        <span class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-none mb-2">4</span>
+        <span class="counter text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-none mb-2" data-target="4" data-prefix="">0</span>
         <span class="text-sm text-gray-500 leading-tight font-normal">Países con presencia</span>
       </div>
     </div>
@@ -38,3 +38,35 @@
     </div>
   </div>
 </section>
+
+<script>
+  const counters = document.querySelectorAll('.counter');
+  if (counters.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target);
+          const prefix = el.dataset.prefix || '';
+          const duration = 1500;
+          const startTime = performance.now();
+
+          function update(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(eased * target);
+            el.textContent = prefix + current;
+            if (progress < 1) requestAnimationFrame(update);
+            else el.textContent = prefix + target;
+          }
+
+          requestAnimationFrame(update);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach((el) => observer.observe(el));
+  }
+</script>
