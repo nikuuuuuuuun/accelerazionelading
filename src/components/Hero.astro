@@ -1,9 +1,10 @@
 <section class="min-h-screen flex items-center relative overflow-hidden bg-black pt-20 pb-0">
   <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1600&q=80'); filter: grayscale(100%);"></div>
+  <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1600&q=80'); -webkit-mask-image: radial-gradient(circle 300px at var(--mouse-x, 50%) var(--mouse-y, 50%), black, transparent); mask-image: radial-gradient(circle 300px at var(--mouse-x, 50%) var(--mouse-y, 50%), black, transparent);"></div>
   <div class="absolute inset-0 bg-black/60"></div>
-  <div class="relative z-10 max-w-[1200px] mx-auto px-6 w-full">
+  <div class="relative z-10 max-w-[1200px] mx-auto px-6 w-full" id="hero-content">
     <div class="max-w-[720px]">
-      <h1 class="text-5xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent leading-[1.05] mb-5">
+      <h1 class="text-5xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent leading-[1.05] mb-5">
         Aceleramos tu producción<br />audiovisual. Escalamos tu impacto.
       </h1>
       <p class="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-[600px] mb-8 font-normal">
@@ -22,3 +23,16 @@
     </div>
   </div>
 </section>
+
+<script>
+  const hero = document.currentScript?.closest('section');
+  if (hero) {
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      hero.style.setProperty('--mouse-x', x + '%');
+      hero.style.setProperty('--mouse-y', y + '%');
+    });
+  }
+</script>
