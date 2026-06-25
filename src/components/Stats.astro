@@ -1,33 +1,54 @@
+---
+interface Logo {
+  id: string;
+  ext: string;
+}
+
+const logos: Logo[] = [
+  { id: "penguin-random-house", ext: "svg" },
+  { id: "abc", ext: "png" },
+  { id: "1mistore", ext: "png" },
+  { id: "infinitiv-capital", ext: "png" },
+  { id: "trikawe-real-estate", ext: "png" },
+  { id: "universidad-de-chile", ext: "svg" },
+  { id: "uahc", ext: "svg" },
+  { id: "procter-gamble", ext: "svg" },
+  { id: "puig", ext: "svg" },
+  { id: "toyotomi", ext: "png" },
+  { id: "cassis-cafe", ext: "png" },
+  { id: "uriage", ext: "svg" },
+  { id: "singalore", ext: "png" },
+  { id: "santander", ext: "svg" },
+  { id: "perrier", ext: "svg" },
+  { id: "glow", ext: "svg" },
+  { id: "copec", ext: "svg" },
+  { id: "compara-online", ext: "svg" },
+  { id: "minera-tres-valles", ext: "png" },
+  { id: "mutual-de-seguros-de-chile", ext: "png" },
+  { id: "camara-chilena-construccion", ext: "svg" },
+];
+---
+
 <section id="impacto" class="py-24 bg-gray-50">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="mb-14 reveal">
       <span class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3 block">Clientes e Impacto</span>
       <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">Respaldados por marcas que exigen rendimiento real.</h2>
-      <p class="text-xl text-gray-500 max-w-[800px] leading-relaxed font-normal">Al implementar flujos de trabajo modernos, logramos una reducción drástica en los tiempos de producción, una escalabilidad de contenido sin precedentes y una disminución real en los costos de adquisición (CAC). No vendemos humo, vendemos rendimiento.</p>
+      <p class="text-xl text-gray-500 max-w-[800px] leading-relaxed font-normal">Al implementar flujos de trabajo modernos, logramos una reducción drástica en los tiempos de producción, una escalabilidad de contenido sin precedentes y una disminución real en los costos de adquisición (CAC).</p>
     </div>
     <div class="reveal">
       <span class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8 block text-center">Confían en nosotros</span>
       <div class="marquee-wrapper overflow-hidden relative">
-        <div class="marquee-track flex gap-16 items-center" style="animation: marquee 30s linear infinite; width: max-content;">
-          <div class="flex gap-16 items-center shrink-0">
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">Penguin Random House</span>
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">ABC</span>
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">1MiStore</span>
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">Lets Go China</span>
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">Infinitiv Capital</span>
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">Trikawe Real Estate</span>
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">Universidad de Chile</span>
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">UAHC</span>
+        <div class="marquee-track flex gap-12 items-center" style="animation: marquee 30s linear infinite; width: max-content;">
+          <div class="flex gap-12 items-center shrink-0">
+            {logos.map((logo) => (
+              <img src={`/logos/${logo.id}.${logo.ext}`} alt={logo.id} class={`logo-image${logo.id === 'trikawe-real-estate' || logo.id === 'cassis-cafe' ? ' logo-dark' : ''}${logo.id === 'abc' ? ' logo-abc' : ''}${logo.id === 'universidad-de-chile' ? ' logo-uchile' : ''}${logo.id === '1mistore' ? ' logo-1mi' : ''}`} />
+            ))}
           </div>
-          <div class="flex gap-16 items-center shrink-0">
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">Penguin Random House</span>
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">ABC</span>
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">1MiStore</span>
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">Lets Go China</span>
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">Infinitiv Capital</span>
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">Trikawe Real Estate</span>
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">Universidad de Chile</span>
-            <span class="text-sm text-gray-400 font-semibold tracking-wide">UAHC</span>
+          <div class="flex gap-12 items-center shrink-0">
+            {logos.map((logo) => (
+              <img src={`/logos/${logo.id}.${logo.ext}`} alt={logo.id} class={`logo-image${logo.id === 'trikawe-real-estate' || logo.id === 'cassis-cafe' ? ' logo-dark' : ''}${logo.id === 'abc' ? ' logo-abc' : ''}${logo.id === 'universidad-de-chile' ? ' logo-uchile' : ''}${logo.id === '1mistore' ? ' logo-1mi' : ''}`} />
+            ))}
           </div>
         </div>
       </div>
@@ -39,6 +60,24 @@
   .marquee-wrapper {
     mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+  .logo-image {
+    height: 2rem;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+  }
+  .logo-image.logo-dark {
+    filter: brightness(0);
+  }
+  .logo-image.logo-abc {
+    height: 5rem;
+  }
+  .logo-image.logo-uchile {
+    height: 3.5rem;
+  }
+  .logo-image.logo-1mi {
+    height: 3rem;
   }
   @keyframes marquee {
     0% { transform: translateX(0); }
