@@ -1,85 +1,68 @@
-<section id="contacto" class="py-24 bg-white">
-  <div class="max-w-[1200px] mx-auto px-6">
-    <div class="mb-12 reveal">
-      <span class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3 block">Contacto</span>
-      <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">Conversemos.</h2>
-      <p class="text-xl text-gray-500 max-w-[600px] leading-relaxed font-normal">Cuéntanos de tu proyecto. En 30 minutos entendemos tu desafío y te proponemos los siguientes pasos.</p>
+<section id="contacto" class="py-28 md:py-40 bg-white">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+    <div class="mb-16 reveal">
+      <span class="text-xs font-medium uppercase tracking-[0.3em] text-neutral-400 mb-6 block">Contacto</span>
+      <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.02] max-w-[900px]">
+        Comienza aquí tu proyecto con nosotros.
+      </h2>
+      <p class="mt-6 text-lg text-neutral-500 max-w-[560px]">¡Nos encantaría saber de ti! Escríbenos y conversemos sobre cómo hacer realidad tu proyecto.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 items-start">
-      <div class="reveal reveal-delay-1">
-        <form id="contactForm" action="https://formspree.io/f/mbdbpzlq" method="POST" class="flex flex-col gap-4">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="flex flex-col">
-              <label for="contactName" class="sr-only">Nombre completo</label>
-              <input type="text" id="contactName" name="name" placeholder="Nombre completo" required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-gray-50 text-gray-900 outline-none focus:border-gray-900 transition-colors" />
-            </div>
-            <div class="flex flex-col">
-              <label for="contactEmail" class="sr-only">Correo electrónico</label>
-              <input type="email" id="contactEmail" name="email" placeholder="Correo electrónico" required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-gray-50 text-gray-900 outline-none focus:border-gray-900 transition-colors" />
-            </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-12 md:gap-20">
+      <!-- Info -->
+      <div class="reveal reveal-delay-1 flex flex-col gap-8">
+        <div class="flex flex-col gap-1">
+          <span class="text-xs font-medium uppercase tracking-[0.3em] text-neutral-400">Teléfono</span>
+          <a href="tel:+56930669996" class="text-lg font-medium hover:text-neutral-600 transition-colors">+56 9 3066 9996</a>
+        </div>
+        <div class="flex flex-col gap-1">
+          <span class="text-xs font-medium uppercase tracking-[0.3em] text-neutral-400">Email</span>
+          <a href="mailto:hola@accelerazione.com" class="text-lg font-medium hover:text-neutral-600 transition-colors">hola@accelerazione.com</a>
+        </div>
+        <div class="flex flex-col gap-1">
+          <span class="text-xs font-medium uppercase tracking-[0.3em] text-neutral-400">Ubicación</span>
+          <span class="text-lg font-medium">Santiago, Chile &amp; LATAM</span>
+        </div>
+        <div class="flex flex-col gap-3 pt-4">
+          <span class="text-xs font-medium uppercase tracking-[0.3em] text-neutral-400">Síguenos</span>
+          <div class="flex gap-4">
+            <a href="#" class="text-sm font-medium link-underline">Instagram</a>
+            <a href="#" class="text-sm font-medium link-underline">LinkedIn</a>
           </div>
-          <div class="flex flex-col">
-            <label for="contactCompany" class="sr-only">Empresa</label>
-            <input type="text" id="contactCompany" name="company" placeholder="Empresa" required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-gray-50 text-gray-900 outline-none focus:border-gray-900 transition-colors" />
-          </div>
-          <div class="flex flex-col">
-            <label for="contactService" class="sr-only">Servicio de interés</label>
-            <select id="contactService" name="service" required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-gray-50 text-gray-900 outline-none focus:border-gray-900 transition-colors">
-              <option value="">¿Qué servicio te interesa?</option>
-              <option value="audiovisual">Producción Audiovisual</option>
-              <option value="web">Desarrollo Web</option>
-              <option value="branding">Consultoría & Branding</option>
-              <option value="integral">Solución integral (Audiovisual + Web)</option>
-              <option value="otro">Otro</option>
-            </select>
-          </div>
-          <div class="flex flex-col">
-            <label for="contactMessage" class="sr-only">Mensaje</label>
-            <textarea id="contactMessage" name="message" rows="4" placeholder="Cuéntanos sobre tu proyecto..." required class="font-sans text-sm px-4 py-3.5 border border-[var(--color-border)] rounded-lg bg-gray-50 text-gray-900 outline-none focus:border-gray-900 transition-colors resize-y"></textarea>
-          </div>
-          <button type="submit" class="bg-black text-white hover:bg-gray-800 shadow-md px-6 py-3 rounded-md text-sm font-medium self-start transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg active:scale-95">Enviar mensaje</button>
-          <p class="text-xs text-gray-400 mt-1">Respondemos en menos de 24 hrs hábiles.</p>
-        </form>
-        <div id="formSuccess" class="text-center py-12 hidden">
-          <svg class="text-gray-900 mx-auto mb-4" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">¡Gracias!</h3>
-          <p class="text-sm text-gray-500">Nos pondremos en contacto contigo pronto.</p>
         </div>
       </div>
-      <div class="reveal reveal-delay-2 flex flex-col gap-6">
-        <div class="overflow-hidden rounded-sm shadow-xl grayscale hover:grayscale-0 transition-all duration-500" style="aspect-ratio: 16/10">
-          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80" alt="Estudio de producción audiovisual con equipo profesional" class="object-cover w-full h-full rounded-md shadow-md" loading="lazy" />
-        </div>
-        <div class="bg-gray-50 border border-[var(--color-border)] rounded-lg p-6 flex flex-col gap-5">
-          <div class="flex flex-col gap-1">
-            <strong class="text-xs font-semibold uppercase tracking-widest text-gray-500">Email</strong>
-            <a href="mailto:hola@accelerazione.com" class="text-sm text-gray-900">hola@accelerazione.com</a>
-          </div>
-          <div class="flex flex-col gap-1">
-            <strong class="text-xs font-semibold uppercase tracking-widest text-gray-500">Ubicación</strong>
-            <span class="text-sm text-gray-900">Santiago, Chile & LATAM</span>
-          </div>
-          <div class="flex flex-col gap-1">
-            <strong class="text-xs font-semibold uppercase tracking-widest text-gray-500">LinkedIn</strong>
-            <a href="#" class="text-sm text-gray-900">linkedin.com/company/accelerazione</a>
-          </div>
+
+      <!-- Form -->
+      <div class="reveal reveal-delay-2">
+        <form id="contactForm" action="https://formspree.io/f/mbdbpzlq" method="POST" class="flex flex-col gap-5">
+          <input type="text" name="name" placeholder="Nombre y Apellido" required class="font-sans text-base px-0 py-4 border-b border-neutral-200 bg-transparent text-neutral-900 outline-none focus:border-neutral-900 transition-colors" />
+          <input type="email" name="email" placeholder="Correo Electrónico" required class="font-sans text-base px-0 py-4 border-b border-neutral-200 bg-transparent text-neutral-900 outline-none focus:border-neutral-900 transition-colors" />
+          <input type="text" name="company" placeholder="Empresa" required class="font-sans text-base px-0 py-4 border-b border-neutral-200 bg-transparent text-neutral-900 outline-none focus:border-neutral-900 transition-colors" />
+          <select name="service" required class="font-sans text-base px-0 py-4 border-b border-neutral-200 bg-transparent text-neutral-900 outline-none focus:border-neutral-900 transition-colors">
+            <option value="">¿Qué servicio te interesa?</option>
+            <option value="audiovisual-integral">Producción Audiovisual Integral</option>
+            <option value="consultoria">Consultoría</option>
+            <option value="contenidos">Marketing de Contenidos</option>
+            <option value="videojuegos">Marketing de Videojuegos</option>
+            <option value="soluciones-ia">Soluciones IA</option>
+          </select>
+          <textarea name="message" rows="4" placeholder="Déjanos tu solicitud" required class="font-sans text-base px-0 py-4 border-b border-neutral-200 bg-transparent text-neutral-900 outline-none focus:border-neutral-900 transition-colors resize-y"></textarea>
+          <button type="submit" class="mt-4 bg-black text-white hover:bg-neutral-800 px-8 py-4 rounded-full text-sm font-semibold self-start transition-all duration-300 hover:-translate-y-0.5">Enviar</button>
+          <p class="text-xs text-neutral-400">Respondemos en menos de 24 hrs hábiles.</p>
+        </form>
+        <div id="formSuccess" class="text-left py-12 hidden">
+          <h3 class="text-2xl font-bold text-neutral-900 mb-2">¡Gracias!</h3>
+          <p class="text-sm text-neutral-500">Nos pondremos en contacto contigo pronto.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<style>
-  .sr-only {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-  }
-</style>
-
 <script>
   const form = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
-
-  form.addEventListener('submit', async (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
     const originalText = btn.textContent;

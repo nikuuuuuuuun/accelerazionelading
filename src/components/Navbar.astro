@@ -1,18 +1,45 @@
-<nav class="fixed top-0 left-0 right-0 z-100 bg-gray-50/80 backdrop-blur-xl saturate-180 border-b border-[var(--color-border)]/50 overflow-visible" style="height: 80px;">
-  <div class="px-8 grid grid-cols-[240px_1fr_240px] items-start h-full overflow-visible">
-    <a href="/" class="overflow-visible">
-      <img src="/logo.png" alt="Accelerazione Logo" class="w-[170px] h-auto drop-shadow-sm pb-3 -mt-10" />
+---
+---
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-100 transition-all duration-500" style="height: 80px;">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-10 h-full flex items-center justify-between">
+    <a href="/" class="flex items-center">
+      <img src="/logo.png" alt="Accelerazione Logo" class="h-12 md:h-14 w-auto object-contain transition-all duration-500" id="navLogo" />
     </a>
-    <div class="flex items-center justify-center gap-8 relative z-10 pt-4">
-      <ul class="hidden md:flex list-none gap-8">
-        <li><a href="#impacto" class="text-sm text-gray-700 hover:text-gray-900 transition-colors cursor-pointer font-medium">Clientes</a></li>
-        <li><a href="#servicios" class="text-sm text-gray-700 hover:text-gray-900 transition-colors cursor-pointer font-medium">Servicios</a></li>
-        <li><a href="#nosotros" class="text-sm text-gray-700 hover:text-gray-900 transition-colors cursor-pointer font-medium">Nosotros</a></li>
-        <li><a href="#asesoria" class="text-sm text-gray-700 hover:text-gray-900 transition-colors cursor-pointer font-medium">Asesoría</a></li>
-        <li><a href="#blog" class="text-sm text-gray-700 hover:text-gray-900 transition-colors cursor-pointer font-medium">Blog</a></li>
-        <li><a href="#faq" class="text-sm text-gray-700 hover:text-gray-900 transition-colors cursor-pointer font-medium">FAQ</a></li>
+    <div class="hidden md:flex items-center gap-8">
+      <ul class="flex list-none gap-7">
+        <li><a href="#nosotros" class="nav-link text-sm font-medium transition-colors duration-300">Nosotros</a></li>
+        <li><a href="#servicios" class="nav-link text-sm font-medium transition-colors duration-300">Servicios</a></li>
+        <li><a href="#proyectos" class="nav-link text-sm font-medium transition-colors duration-300">Proyectos</a></li>
+        <li><a href="#clientes" class="nav-link text-sm font-medium transition-colors duration-300">Clientes</a></li>
+        <li><a href="#blog" class="nav-link text-sm font-medium transition-colors duration-300">Blog</a></li>
+        <li><a href="#contacto" class="nav-link text-sm font-medium transition-colors duration-300">Contacto</a></li>
       </ul>
-      <a href="#contacto" class="bg-black text-white hover:bg-gray-800 shadow-md px-6 py-3 rounded-md text-sm font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg active:scale-95">Agendar asesoría</a>
+      <a href="#contacto" class="nav-cta text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300">Hablemos</a>
     </div>
+    <button id="menuBtn" class="md:hidden text-current" aria-label="Menú">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
   </div>
 </nav>
+
+<style>
+  #navbar { color: #ffffff; }
+  #navbar:not(.scrolled) #navLogo { filter: brightness(0) invert(1); }
+  #navbar.scrolled { background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); color: #0a0a0a; border-bottom: 1px solid #e5e5e5; }
+  .nav-link { opacity: 0.85; }
+  .nav-link:hover { opacity: 1; }
+  .nav-cta { background: #ffffff; color: #0a0a0a; }
+  #navbar.scrolled .nav-cta { background: #0a0a0a; color: #ffffff; }
+  #navbar.scrolled .nav-cta:hover { background: #262626; }
+  .nav-cta:hover { background: #f5f5f5; }
+</style>
+
+<script>
+  const nav = document.getElementById('navbar');
+  const onScroll = () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>

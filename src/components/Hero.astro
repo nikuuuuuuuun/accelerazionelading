@@ -1,24 +1,43 @@
-<section class="min-h-screen flex items-center relative overflow-hidden bg-black pt-20 pb-0">
-  <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1600&q=80'); filter: grayscale(100%);"></div>
-  <div class="absolute inset-0 bg-black/60"></div>
-  <div class="relative z-10 max-w-[1200px] mx-auto px-6 w-full">
-    <div class="max-w-[720px]">
-      <h1 class="text-5xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent leading-[1.05] mb-5">
-        Aceleramos tu producción.<br />Reducimos el tiempo a la meta.
+<section class="relative min-h-screen w-full overflow-hidden bg-black text-white flex items-end">
+  <!-- Background media (video-ready) -->
+  <div class="absolute inset-0">
+    <!-- Video-reel: descomenta y agrega tu archivo en /public/reel.mp4 -->
+    <!--
+    <video class="absolute inset-0 w-full h-full object-cover opacity-60" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920&q=80">
+      <source src="/reel.mp4" type="video/mp4" />
+    </video>
+    -->
+    <div class="absolute inset-0 bg-cover bg-center opacity-60" style="background-image: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920&q=80'); filter: grayscale(100%);"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20"></div>
+    <div class="absolute inset-0 bg-black/25"></div>
+  </div>
+
+  <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 pb-16 md:pb-24 pt-32">
+    <div class="max-w-[1100px]">
+      <span class="block text-xs md:text-sm font-medium uppercase tracking-[0.3em] text-white/60 mb-6 reveal">
+        Agencia de Marketing de Contenidos & Producción Audiovisual · Soluciones IA
+      </span>
+      <h1 class="text-[13vw] md:text-[9vw] lg:text-[8rem] font-bold leading-[0.92] tracking-tighter reveal reveal-delay-1">
+        Aceleramos<br />
+        <span class="text-white/40">tu producción.</span>
       </h1>
-      <p class="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-[600px] mb-8 font-normal">
-        Dejamos atrás los cuellos de botella de la producción tradicional. Combinamos flujos de trabajo automatizados e Inteligencia Artificial.
+      <p class="mt-8 text-lg md:text-xl text-white/70 leading-relaxed max-w-[560px] reveal reveal-delay-2">
+        Dejamos atrás los cuellos de botella de la producción tradicional. Combinamos flujos automatizados e inteligencia artificial para darle solución tu problema hoy.
       </p>
-      <div class="flex flex-wrap gap-3 mb-10">
-        <span class="text-xs font-medium text-gray-400 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">Producción Audiovisual Integral</span>
-        <span class="text-xs font-medium text-gray-400 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">IA &amp; Automatización</span>
-        <span class="text-xs font-medium text-gray-400 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">Performance Marketing</span>
-        <span class="text-xs font-medium text-gray-400 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">Streaming</span>
+      <div class="mt-10 flex flex-wrap items-center gap-4 reveal reveal-delay-3">
+        <a href="#contacto" class="group inline-flex items-center gap-3 bg-white text-black px-7 py-4 rounded-full text-sm font-semibold transition-all duration-300 hover:bg-white/90 hover:-translate-y-0.5">
+          Agendar asesoría gratuita
+          <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </a>
+        <a href="#proyectos" class="inline-flex items-center gap-2 text-sm font-medium text-white/80 hover:text-white transition-colors link-underline">
+          Ver nuestro reel
+        </a>
       </div>
-      <div class="flex gap-4 flex-wrap">
-        <a href="#contacto" class="bg-white text-black hover:bg-gray-100 shadow-md px-6 py-3 rounded-md text-base font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg active:scale-95">Agendar asesoría gratuita</a>
-        <a href="#impacto" class="bg-transparent text-white border border-white/40 hover:bg-white/10 px-6 py-3 rounded-md text-base font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg active:scale-95">Ver nuestro portafolio</a>
-      </div>
+    </div>
+
+    <div class="mt-16 md:mt-24 flex items-end justify-between text-xs text-white/40 uppercase tracking-widest">
+      <span class="hidden md:block">Scroll</span>
+      <span class="hidden md:block">© 2026 Accelerazione</span>
     </div>
   </div>
 </section>

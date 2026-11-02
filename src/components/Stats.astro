@@ -29,59 +29,43 @@ const logos: Logo[] = [
 ];
 ---
 
-<section id="impacto" class="py-24 bg-gray-50">
-  <div class="max-w-[1200px] mx-auto px-6">
-    <div class="mb-14 reveal">
-      <span class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3 block">Clientes e Impacto</span>
-      <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">Respaldados por marcas que exigen rendimiento real.</h2>
-      <p class="text-xl text-gray-500 max-w-[800px] leading-relaxed font-normal">Al implementar flujos de trabajo modernos, logramos una reducción drástica en los tiempos de producción, una escalabilidad de contenido sin precedentes y una disminución real en los costos de adquisición (CAC).</p>
+<section id="clientes" class="py-28 md:py-40 bg-white">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+    <div class="mb-16 reveal">
+      <span class="text-xs font-medium uppercase tracking-[0.3em] text-neutral-400 mb-6 block">Clientes</span>
+      <h2 class="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.02] max-w-[700px]">
+        Empresas que confían en nosotros.
+      </h2>
     </div>
-    <div class="reveal">
-      <span class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8 block text-center">Confían en nosotros</span>
-      <div class="marquee-wrapper overflow-hidden relative">
-        <div class="marquee-track flex gap-12 items-center" style="animation: marquee 30s linear infinite; width: max-content;">
-          <div class="flex gap-12 items-center shrink-0">
-            {logos.map((logo) => (
-              <img src={`/logos/${logo.id}.${logo.ext}`} alt={logo.id} class={`logo-image${logo.id === 'trikawe-real-estate' || logo.id === 'cassis-cafe' ? ' logo-dark' : ''}${logo.id === 'abc' ? ' logo-abc' : ''}${logo.id === 'universidad-de-chile' ? ' logo-uchile' : ''}${logo.id === '1mistore' ? ' logo-1mi' : ''}`} />
-            ))}
-          </div>
-          <div class="flex gap-12 items-center shrink-0">
-            {logos.map((logo) => (
-              <img src={`/logos/${logo.id}.${logo.ext}`} alt={logo.id} class={`logo-image${logo.id === 'trikawe-real-estate' || logo.id === 'cassis-cafe' ? ' logo-dark' : ''}${logo.id === 'abc' ? ' logo-abc' : ''}${logo.id === 'universidad-de-chile' ? ' logo-uchile' : ''}${logo.id === '1mistore' ? ' logo-1mi' : ''}`} />
-            ))}
-          </div>
+
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-x-8 gap-y-10 items-center">
+      {logos.map((logo, i) => (
+        <div class={`flex items-center justify-center reveal reveal-delay-${(i % 4) + 1}`}>
+          <img
+            src={`/logos/${logo.id}.${logo.ext}`}
+            alt={logo.id}
+            class={`logo-image${logo.id === 'trikawe-real-estate' || logo.id === 'cassis-cafe' ? ' logo-dark' : ''}${logo.id === 'abc' ? ' logo-abc' : ''}${logo.id === 'universidad-de-chile' ? ' logo-uchile' : ''}${logo.id === '1mistore' ? ' logo-1mi' : ''}`}
+          />
         </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
 
 <style>
-  .marquee-wrapper {
-    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-  }
   .logo-image {
-    height: 2rem;
+    height: 1.75rem;
     width: auto;
-    max-width: 140px;
+    max-width: 120px;
     object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.55;
+    transition: filter 0.4s ease, opacity 0.4s ease;
   }
-  .logo-image.logo-dark {
-    filter: brightness(0);
-  }
-  .logo-image.logo-abc {
-    height: 5rem;
-  }
-  .logo-image.logo-uchile {
-    height: 3.5rem;
-  }
-  .logo-image.logo-1mi {
-    height: 3rem;
-  }
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
+  .logo-image:hover { filter: grayscale(0%); opacity: 1; }
+  .logo-image.logo-dark { filter: grayscale(100%) brightness(0); opacity: 0.55; }
+  .logo-image.logo-dark:hover { filter: grayscale(0%) brightness(0); opacity: 0.85; }
+  .logo-image.logo-abc { height: 3.5rem; }
+  .logo-image.logo-uchile { height: 2.5rem; }
+  .logo-image.logo-1mi { height: 2rem; }
 </style>
-
