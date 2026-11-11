@@ -1,36 +1,134 @@
-<section class="relative min-h-screen w-full overflow-hidden bg-black text-white flex items-end">
-  <!-- Background media (video-ready) -->
-  <div class="absolute inset-0">
-    <!-- Video-reel: descomenta y agrega tu archivo en /public/reel.mp4 -->
+---
+import { Image, getImage } from 'astro:assets';
+
+import heroEvent from '../assets/hero/GJBJFKOJJ5COJLFND4VWUQJZNU.jpg';
+import heroPodcast from '../assets/hero/man-and-woman-recording-podcast-in-a-professional-2026-09-02-23-55-32-utc.jpg';
+import heroGaming from '../assets/hero/mktg-su-20191010-prge-video-games-living-room.jpg';
+import heroStudio from '../assets/hero/team-working-together-in-photography-studio-2026-09-22-22-20-59-utc.jpg';
+import heroSmoothie from '../assets/hero/woman-preparing-smoothie-while-being-filmed-at-hom-2026-09-24-16-13-26-utc.jpg';
+import heroMountain from '../assets/hero/fitzroy-mountain-at-sunset-autumn-painted-hills-i-2026-09-23-02-20-21-utc.jpg';
+
+const heroSources = [heroEvent, heroPodcast, heroGaming, heroStudio, heroSmoothie, heroMountain];
+
+const phrases = ['que te conozcan', 'tu marketing', 'que confíen en ti', 'tus ventas', 'tu producción'];
+
+const responsiveWidths = [640, 960, 1280, 1920, 2560];
+
+const slides = await Promise.all(
+  heroSources.map(async (src) => ({
+    src,
+    widths: responsiveWidths.filter((width) => width <= src.width),
+    glow: (
+      await getImage({
+        src,
+        width: Math.min(960, src.width),
+        format: 'webp',
+        quality: 80,
+      })
+    ).src,
+  }))
+);
+---
+
+<section
+  id="hero"
+  data-phrases={phrases.join('|')}
+  class="relative min-h-screen w-full overflow-hidden bg-black text-white flex items-end"
+>
+  <!-- Fondo: carrusel de imágenes procesadas por Astro -->
+  <div class="absolute inset-0" aria-hidden="true">
+    <div class="absolute inset-0 isolate">
+      {slides.map((slide, index) => (
+        <div
+          class:list={[
+            'hero-slide absolute inset-0 overflow-hidden transition-opacity duration-[1200ms] ease-out',
+            index === 0 ? 'is-zooming z-10 opacity-100' : 'z-0 opacity-0',
+          ]}
+          data-glow={slide.glow}
+          data-width={slide.src.width}
+          data-height={slide.src.height}
+        >
+          <div class="hero-slide-media absolute inset-0 grayscale brightness-90">
+            <Image
+              src={slide.src}
+              alt=""
+              widths={slide.widths}
+              sizes="100vw"
+              format="webp"
+              quality={82}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              fetchpriority={index === 0 ? 'high' : 'auto'}
+              decoding="async"
+              class="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Oscurecido para legibilidad del texto (la foto base ya está en B/N) -->
+    <div class="pointer-events-none absolute inset-0 z-[3] bg-gradient-to-t from-black via-black/40 to-black/20"></div>
+    <div class="pointer-events-none absolute inset-0 z-[3] bg-black/25"></div>
+
     <!--
-    <video class="absolute inset-0 w-full h-full object-cover opacity-60" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920&q=80">
-      <source src="/reel.mp4" type="video/mp4" />
-    </video>
+      Capa de color revelada como linterna. El canvas solo pinta donde el
+      rastro tiene alfa, dejando el resto de la foto en blanco y negro.
     -->
-    <div class="absolute inset-0 bg-cover bg-center opacity-60" style="background-image: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920&q=80'); filter: grayscale(100%);"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20"></div>
-    <div class="absolute inset-0 bg-black/25"></div>
+    <canvas
+      id="hero-color-trail"
+      class="pointer-events-none absolute inset-0 z-[4] h-full w-full"
+      aria-hidden="true"
+    ></canvas>
+
+    <!-- Nebulosa de luz que sigue al cursor -->
+    <div
+      id="hero-glow"
+      class="pointer-events-none absolute left-0 top-0 z-[5] h-28 w-28 opacity-0 mix-blend-screen transition-opacity duration-300 ease-out will-change-transform"
+    >
+      <div class="absolute -inset-4 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.30)_0%,rgba(191,219,254,0.16)_42%,rgba(251,207,232,0.08)_66%,transparent_80%)] blur-3xl"></div>
+
+      <div class="absolute inset-0 rounded-full blur-3xl">
+        <div
+          id="hero-glow-image"
+          class="absolute inset-0 rounded-full bg-cover bg-no-repeat opacity-70 saturate-150 brightness-110"
+        ></div>
+        <div class="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0.04)_52%,transparent_76%)]"></div>
+      </div>
+    </div>
   </div>
 
   <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 pb-16 md:pb-24 pt-32">
     <div class="max-w-[1100px]">
       <span class="block text-xs md:text-sm font-medium uppercase tracking-[0.3em] text-white/60 mb-6 reveal">
-        Agencia de Marketing de Contenidos & Producción Audiovisual · Soluciones IA
+        Digital, PR &amp; Content Marketing
       </span>
-      <h1 class="text-[13vw] md:text-[9vw] lg:text-[8rem] font-bold leading-[0.92] tracking-tighter reveal reveal-delay-1">
-        Aceleramos<br />
-        <span class="text-white/40">tu producción.</span>
+
+      <h1 class="font-bold leading-[0.95] tracking-tighter reveal reveal-delay-1">
+        <span class="block text-[13vw] md:text-[9vw] lg:text-[8rem]">Aceleramos</span>
+        <span class="mt-1 md:mt-2 block text-[8.8vw] md:text-[7.4vw] lg:text-[6.8rem] text-white/40">
+          <span
+            id="hero-rotating-word"
+            class="inline-block transition-all duration-300 ease-out will-change-transform motion-reduce:transition-none"
+          >{phrases[0]}</span><span>.</span>
+        </span>
       </h1>
+
       <p class="mt-8 text-lg md:text-xl text-white/70 leading-relaxed max-w-[560px] reveal reveal-delay-2">
-        Dejamos atrás los cuellos de botella de la producción tradicional. Combinamos flujos automatizados e inteligencia artificial para darle solución tu problema hoy.
+        Digital, PR &amp; Content Marketing. Construimos conexiones auténticas con tu audiencia para acelerar tu crecimiento.
       </p>
+
       <div class="mt-10 flex flex-wrap items-center gap-4 reveal reveal-delay-3">
         <a href="#contacto" class="group inline-flex items-center gap-3 bg-white text-black px-7 py-4 rounded-full text-sm font-semibold transition-all duration-300 hover:bg-white/90 hover:-translate-y-0.5">
           Agendar asesoría gratuita
           <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
         </a>
-        <a href="#proyectos" class="inline-flex items-center gap-2 text-sm font-medium text-white/80 hover:text-white transition-colors link-underline">
-          Ver nuestro reel
+        <a
+          href="https://drive.google.com/drive/folders/1a6LAbEbjomrqtMiPDK8esKV78PlFL0Ps?usp=drive_link"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-sm font-medium text-white/80 hover:text-white transition-colors link-underline"
+        >
+          Ver nuestro portafolio
         </a>
       </div>
     </div>
@@ -41,3 +139,519 @@
     </div>
   </div>
 </section>
+
+<style>
+  /* El zoom vive en un wrapper interno: la opacidad del slide no lo reinicia */
+  .hero-slide-media {
+    transform: scale(1.05);
+    transform-origin: center;
+    will-change: transform;
+  }
+
+  .hero-slide.is-zooming .hero-slide-media {
+    animation: hero-kenburns 8s linear both;
+  }
+
+  @keyframes hero-kenburns {
+    from { transform: scale(1.05); }
+    to   { transform: scale(1.16); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-slide.is-zooming .hero-slide-media {
+      animation: none;
+      transform: scale(1.05);
+    }
+  }
+</style>
+
+<script>
+  const hero = document.getElementById('hero');
+
+  if (hero) {
+    const slides = Array.from(hero.querySelectorAll('.hero-slide'));
+    const wordEl = document.getElementById('hero-rotating-word');
+    const glow = document.getElementById('hero-glow');
+    const glowImage = document.getElementById('hero-glow-image');
+    const trailCanvas = document.getElementById('hero-color-trail');
+    const phrases = (hero.dataset.phrases || '').split('|').filter(Boolean);
+
+    const STEP_MS = 3000;
+    const CROSSFADE_MS = 1200;
+    const TEXT_FADE_MS = 300;
+    const ZOOM_MS = 8000;
+    const ZOOM_FROM = 1.05;
+    const ZOOM_TO = 1.16;
+
+    /* Rastro de color: 4 s exactos, muestreado a ~25 puntos/s y pintado a 30 fps */
+    const TRAIL_MS = 4000;
+    const TRAIL_SAMPLE_MS = 50;
+    const TRAIL_MIN_DISTANCE = 7;
+    const TRAIL_MAX_POINTS = 90;
+    const TRAIL_RADIUS = 105;
+    const CURSOR_RADIUS = 130;
+    const TRAIL_FRAME_MS = 1000 / 30;
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const interactive = finePointer && !reducedMotion;
+
+    let textIndex = 0;
+    let photoIndex = 0;
+    let step = 0;
+    let fadeTimer = 0;
+    let glowX = 0;
+    let glowY = 0;
+    let glowBgWidth = 0;
+    let glowBgHeight = 0;
+    let glowOffsetX = 0;
+    let glowOffsetY = 0;
+
+    /* Estado del canvas de color */
+    let trailCtx = null;
+    let maskCanvas = null;
+    let maskCtx = null;
+    let sourceCanvas = null;
+    let sourceCtx = null;
+    let stampCanvas = null;
+    let canvasWidth = 0;
+    let canvasHeight = 0;
+    let canvasScale = 1;
+    let trailPoints = [];
+    let cursorX = 0;
+    let cursorY = 0;
+    let pointerInside = false;
+    let rafId = 0;
+    let lastRender = 0;
+    let colorFading = false;
+    let colorFromIndex = 0;
+    let colorFadeStart = 0;
+    let lastSampleTime = 0;
+    let lastSampleX = 0;
+    let lastSampleY = 0;
+    let hasSample = false;
+
+    const slideStartedAt = slides.map(() => performance.now());
+
+    /* ---------------------------------------------------------
+       Texto: fade/slide corto con clases de Tailwind
+       --------------------------------------------------------- */
+    function advanceText() {
+      if (!wordEl || phrases.length < 2) return;
+
+      if (reducedMotion) {
+        textIndex = (textIndex + 1) % phrases.length;
+        wordEl.textContent = phrases[textIndex];
+        return;
+      }
+
+      wordEl.classList.add('opacity-0', 'translate-y-2', 'blur-sm');
+
+      window.setTimeout(() => {
+        textIndex = (textIndex + 1) % phrases.length;
+        wordEl.textContent = phrases[textIndex];
+        void wordEl.offsetWidth; // fuerza el repintado antes de volver a entrar
+        wordEl.classList.remove('opacity-0', 'translate-y-2', 'blur-sm');
+      }, TEXT_FADE_MS);
+    }
+
+    /* ---------------------------------------------------------
+       Foto: crossfade mientras el zoom sigue corriendo
+       --------------------------------------------------------- */
+    function advancePhoto() {
+      if (slides.length < 2) return;
+
+      const previousIndex = photoIndex;
+      const previous = slides[previousIndex];
+      photoIndex = (photoIndex + 1) % slides.length;
+      const next = slides[photoIndex];
+
+      // La saliente conserva is-zooming durante todo el crossfade.
+      previous.classList.add('is-zooming');
+      previous.classList.remove('z-10', 'opacity-100');
+      previous.classList.add('z-0', 'opacity-0');
+
+      next.classList.remove('z-0', 'opacity-0');
+      next.classList.add('z-10', 'opacity-100', 'is-zooming');
+      slideStartedAt[photoIndex] = performance.now();
+
+      updateGlowSource();
+      beginColorCrossfade(previousIndex);
+
+      window.clearTimeout(fadeTimer);
+      fadeTimer = window.setTimeout(() => {
+        slides.forEach((slide) => {
+          if (slide !== next) slide.classList.remove('is-zooming');
+        });
+      }, CROSSFADE_MS + 100);
+    }
+
+    /* ---------------------------------------------------------
+       Nebulosa: muestra un trocito de la foto activa bajo el cursor
+       --------------------------------------------------------- */
+    function updateGlowPosition() {
+      if (!glowImage || !glowBgWidth) return;
+
+      const coreSize = glowImage.offsetWidth || 112;
+      const left = glowX - coreSize / 2;
+      const top = glowY - coreSize / 2;
+
+      glowImage.style.backgroundPosition = `${glowOffsetX - left}px ${glowOffsetY - top}px`;
+    }
+
+    function updateGlowSource() {
+      if (!glowImage) return;
+
+      const slide = slides[photoIndex];
+      if (!slide) return;
+
+      const rect = hero.getBoundingClientRect();
+      const imgW = Number(slide.dataset.width);
+      const imgH = Number(slide.dataset.height);
+      if (!imgW || !imgH || !rect.width || !rect.height) return;
+
+      const scale = Math.max(rect.width / imgW, rect.height / imgH);
+      glowBgWidth = imgW * scale;
+      glowBgHeight = imgH * scale;
+      glowOffsetX = (rect.width - glowBgWidth) / 2;
+      glowOffsetY = (rect.height - glowBgHeight) / 2;
+
+      glowImage.style.backgroundImage = `url("${slide.dataset.glow}")`;
+      glowImage.style.backgroundSize = `${glowBgWidth}px ${glowBgHeight}px`;
+      updateGlowPosition();
+    }
+
+    /* ---------------------------------------------------------
+       Canvas: linterna de color + rastro de 4 segundos
+       --------------------------------------------------------- */
+    function createStamp() {
+      const size = 256;
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+
+      const context = canvas.getContext('2d');
+      const gradient = context.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+      gradient.addColorStop(0, 'rgba(255,255,255,1)');
+      gradient.addColorStop(0.4, 'rgba(255,255,255,0.75)');
+      gradient.addColorStop(0.75, 'rgba(255,255,255,0.22)');
+      gradient.addColorStop(1, 'rgba(255,255,255,0)');
+
+      context.fillStyle = gradient;
+      context.fillRect(0, 0, size, size);
+      return canvas;
+    }
+
+    function sizeTrailCanvas() {
+      if (!trailCtx) return;
+
+      const rect = hero.getBoundingClientRect();
+      const cssWidth = Math.max(1, Math.round(rect.width));
+      const cssHeight = Math.max(1, Math.round(rect.height));
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const scale = Math.min(dpr, 1920 / cssWidth);
+
+      if (cssWidth === canvasWidth && cssHeight === canvasHeight && scale === canvasScale) return;
+
+      canvasWidth = cssWidth;
+      canvasHeight = cssHeight;
+      canvasScale = scale;
+
+      const width = Math.max(1, Math.round(cssWidth * scale));
+      const height = Math.max(1, Math.round(cssHeight * scale));
+      [trailCanvas, maskCanvas, sourceCanvas].forEach((canvas) => {
+        canvas.width = width;
+        canvas.height = height;
+      });
+
+      if (pointerInside || trailPoints.length) requestRender();
+    }
+
+    function zoomFor(index, now) {
+      const started = slideStartedAt[index] || now;
+      const progress = Math.min(1, Math.max(0, (now - started) / ZOOM_MS));
+      return ZOOM_FROM + (ZOOM_TO - ZOOM_FROM) * progress;
+    }
+
+    function drawCoverToSource(image, zoom) {
+      const imgW = image.naturalWidth;
+      const imgH = image.naturalHeight;
+      if (!imgW || !imgH || !sourceCanvas.width) return;
+
+      const width = sourceCanvas.width;
+      const height = sourceCanvas.height;
+      const coverScale = Math.max(width / imgW, height / imgH);
+      const drawWidth = imgW * coverScale;
+      const drawHeight = imgH * coverScale;
+
+      sourceCtx.save();
+      sourceCtx.translate(width / 2, height / 2);
+      sourceCtx.scale(zoom, zoom);
+      sourceCtx.translate(-width / 2, -height / 2);
+      sourceCtx.drawImage(
+        image,
+        (width - drawWidth) / 2,
+        (height - drawHeight) / 2,
+        drawWidth,
+        drawHeight
+      );
+      sourceCtx.restore();
+    }
+
+    function updateColorSource(now) {
+      if (!sourceCtx || !sourceCanvas.width || !sourceCanvas.height) return;
+
+      const width = sourceCanvas.width;
+      const height = sourceCanvas.height;
+      const toImage = slides[photoIndex]?.querySelector('img');
+
+      sourceCtx.clearRect(0, 0, width, height);
+      sourceCtx.globalCompositeOperation = 'source-over';
+
+      if (colorFading) {
+        const progress = Math.min(1, Math.max(0, (now - colorFadeStart) / CROSSFADE_MS));
+        const fromImage = slides[colorFromIndex]?.querySelector('img');
+
+        if (fromImage && progress < 1) {
+          sourceCtx.globalAlpha = 1 - progress;
+          drawCoverToSource(fromImage, zoomFor(colorFromIndex, now));
+        }
+        if (toImage) {
+          sourceCtx.globalAlpha = progress;
+          drawCoverToSource(toImage, zoomFor(photoIndex, now));
+        }
+        sourceCtx.globalAlpha = 1;
+
+        if (progress >= 1) colorFading = false;
+      } else if (toImage) {
+        drawCoverToSource(toImage, zoomFor(photoIndex, now));
+      }
+    }
+
+    function beginColorCrossfade(fromIndex) {
+      if (!trailCtx) return;
+
+      colorFromIndex = fromIndex;
+      colorFadeStart = performance.now();
+      colorFading = pointerInside || trailPoints.length > 0;
+
+      if (colorFading) requestRender();
+    }
+
+    function drawStamp(context, x, y, radius) {
+      const r = radius * canvasScale;
+      context.drawImage(stampCanvas, x * canvasScale - r, y * canvasScale - r, r * 2, r * 2);
+    }
+
+    function requestRender() {
+      if (!trailCtx || rafId) return;
+      lastRender = 0;
+      rafId = window.requestAnimationFrame(frame);
+    }
+
+    function frame(now) {
+      rafId = 0;
+
+      // Limita el pintado a 30 fps: suficiente para un rastro suave.
+      if (now - lastRender < TRAIL_FRAME_MS) {
+        rafId = window.requestAnimationFrame(frame);
+        return;
+      }
+      lastRender = now;
+
+      updateColorSource(now);
+
+      const cutoff = now - TRAIL_MS;
+      while (trailPoints.length && trailPoints[0].t <= cutoff) trailPoints.shift();
+
+      maskCtx.clearRect(0, 0, maskCanvas.width, maskCanvas.height);
+      maskCtx.globalCompositeOperation = 'source-over';
+
+      let visible = false;
+
+      for (let i = 0; i < trailPoints.length; i += 1) {
+        const point = trailPoints[i];
+        const age = now - point.t;
+        if (age >= TRAIL_MS) continue;
+
+        const t = age / TRAIL_MS;
+        const fade = 1 - t; // lineal: 4 s de desvanecido continuo
+        if (fade <= 0.01) continue;
+
+        visible = true;
+        maskCtx.globalAlpha = fade * 0.45;
+        drawStamp(maskCtx, point.x, point.y, TRAIL_RADIUS);
+      }
+
+      // El cursor siempre revela color a plena intensidad (linterna).
+      if (pointerInside) {
+        visible = true;
+        maskCtx.globalAlpha = 0.95;
+        drawStamp(maskCtx, cursorX, cursorY, CURSOR_RADIUS);
+      }
+
+      maskCtx.globalAlpha = 1;
+      trailCtx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
+
+      if (visible) {
+        trailCtx.globalCompositeOperation = 'source-over';
+        trailCtx.drawImage(sourceCanvas, 0, 0);
+        trailCtx.globalCompositeOperation = 'destination-in';
+        trailCtx.drawImage(maskCanvas, 0, 0);
+        trailCtx.globalCompositeOperation = 'source-over';
+      }
+
+      // Sigue animando mientras haya puntos envejeciendo o un crossfade.
+      if (trailPoints.length > 0 || colorFading) {
+        rafId = window.requestAnimationFrame(frame);
+      }
+    }
+
+    function updateTrail(x, y, now) {
+      if (!trailCtx) return;
+
+      cursorX = x;
+      cursorY = y;
+      pointerInside = true;
+
+      if (hasSample) {
+        const dx = x - lastSampleX;
+        const dy = y - lastSampleY;
+        if (dx * dx + dy * dy < TRAIL_MIN_DISTANCE * TRAIL_MIN_DISTANCE) {
+          requestRender();
+          return;
+        }
+        if (now - lastSampleTime < TRAIL_SAMPLE_MS) {
+          requestRender();
+          return;
+        }
+      }
+
+      lastSampleX = x;
+      lastSampleY = y;
+      lastSampleTime = now;
+      hasSample = true;
+
+      trailPoints.push({ x, y, t: now });
+      if (trailPoints.length > TRAIL_MAX_POINTS) trailPoints.shift();
+
+      requestRender();
+    }
+
+    function initTrail() {
+      if (!trailCanvas || trailCtx) return;
+
+      const context = trailCanvas.getContext('2d');
+      if (!context) return;
+
+      trailCtx = context;
+      maskCanvas = document.createElement('canvas');
+      maskCtx = maskCanvas.getContext('2d');
+      sourceCanvas = document.createElement('canvas');
+      sourceCtx = sourceCanvas.getContext('2d');
+      stampCanvas = createStamp();
+
+      if (!maskCtx || !sourceCtx) {
+        trailCtx = null;
+        return;
+      }
+
+      sizeTrailCanvas();
+
+      slides.forEach((slide, index) => {
+        const image = slide.querySelector('img');
+        if (!image) return;
+        image.addEventListener('load', () => {
+          if (index === photoIndex && (pointerInside || trailPoints.length)) {
+            requestRender();
+          }
+        });
+      });
+    }
+
+    /* ---------------------------------------------------------
+       Movimiento del cursor: nebulosa + linterna
+       --------------------------------------------------------- */
+    function moveGlow(event) {
+      if (!interactive || event.pointerType === 'touch') return;
+
+      const rect = hero.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      if (x < 0 || y < 0 || x > rect.width || y > rect.height) return;
+
+      glowX = x;
+      glowY = y;
+
+      if (glow) {
+        const size = glow.offsetWidth || 112;
+        glow.style.transform = `translate3d(${x - size / 2}px, ${y - size / 2}px, 0)`;
+        glow.classList.remove('opacity-0');
+        glow.classList.add('opacity-100');
+      }
+
+      updateGlowPosition();
+      updateTrail(x, y, performance.now());
+    }
+
+    function hideGlow(event) {
+      if (event && event.pointerType === 'touch') return;
+
+      if (glow) {
+        glow.classList.remove('opacity-100');
+        glow.classList.add('opacity-0');
+      }
+
+      if (trailCtx) {
+        pointerInside = false;
+        hasSample = false;
+        requestRender();
+      }
+    }
+
+    /* ---------------------------------------------------------
+       Setup
+       --------------------------------------------------------- */
+    if (interactive) {
+      initTrail();
+
+      if (glow && glowImage) {
+        updateGlowSource();
+
+        hero.addEventListener('pointerenter', moveGlow, { passive: true });
+        hero.addEventListener('pointermove', moveGlow, { passive: true });
+        hero.addEventListener('pointerleave', hideGlow, { passive: true });
+        hero.addEventListener('pointercancel', hideGlow, { passive: true });
+      }
+
+      window.addEventListener(
+        'resize',
+        () => {
+          sizeTrailCanvas();
+          updateGlowSource();
+        },
+        { passive: true }
+      );
+
+      if ('ResizeObserver' in window) {
+        const resizeObserver = new ResizeObserver(() => {
+          sizeTrailCanvas();
+          updateGlowSource();
+        });
+        resizeObserver.observe(hero);
+      }
+    }
+
+    /* ---------------------------------------------------------
+       Timeline: 3s texto → 3s foto → 3s texto...
+       --------------------------------------------------------- */
+    if (phrases.length > 1 || slides.length > 1) {
+      window.setInterval(() => {
+        step += 1;
+        if (step % 2 === 1) advanceText();
+        else advancePhoto();
+      }, STEP_MS);
+    }
+  }
+</script>
