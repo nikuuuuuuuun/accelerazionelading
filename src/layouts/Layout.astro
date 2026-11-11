@@ -8,6 +8,11 @@ interface Props {
 }
 
 const { title = 'Accelerazione — Diseño y Desarrollo Digital', description = 'Accelerazione ayuda a startups y empresas a diseñar y construir experiencias web modernas, rápidas y centradas en el usuario.', ogImage = '/og-image.jpg' } = Astro.props;
+
+// Los navegadores cachean los favicons de forma muy agresiva (a veces durante
+// meses) y no revalidan la URL original. Cambiar este valor fuerza a que
+// vuelvan a descargar todos los iconos y el manifest.
+const iconVersion = '2';
 ---
 
 <!doctype html>
@@ -15,12 +20,12 @@ const { title = 'Accelerazione — Diseño y Desarrollo Digital', description = 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href={`/favicon.svg?v=${iconVersion}`} />
+    <link rel="icon" href={`/favicon.ico?v=${iconVersion}`} sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href={`/favicon-32x32.png?v=${iconVersion}`} />
+    <link rel="icon" type="image/png" sizes="16x16" href={`/favicon-16x16.png?v=${iconVersion}`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`/apple-touch-icon.png?v=${iconVersion}`} />
+    <link rel="manifest" href={`/site.webmanifest?v=${iconVersion}`} />
     <meta name="theme-color" content="#000000" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
